@@ -72,3 +72,6 @@ function callback(entries, observer){
     entries[0].target.classList.add(size);
 
 }
+
+
+el.closest("article > div")
