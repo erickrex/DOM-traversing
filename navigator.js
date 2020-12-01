@@ -73,5 +73,35 @@ function callback(entries, observer){
 
 }
 
-
+/* return closest ancestor which is a div and has a parent articke */
 el.closest("article > div")
+
+const p = document.querySelector('p');
+
+document.addEventListener('click', e => {
+    const isOutside = !e.target.closest('.modeal-inner');
+    p.textContent = `You Clicked ${isOutside ? 'Outside' : 'Inside'}!`;
+    });
+
+button.addEventListener('click', (e) => {
+    //checks if button has a class of available and a set data-price atribute
+    if(e.currentTarget.matches('.available[data-price]')){
+    //do something here
+    }
+
+});
+
+//list is an empty div where we add items with JS
+list.addEventListener('click', e => {
+    if (e.target.matches('button')) {
+        deleteItem(parseFloat(e.target.value));
+    }
+});
+
+/* check if a reference to an element is inside another*/
+const modal = document.querySelector('.modal');
+modal.contains(button); //true 
+modal.querySelector('button'); // button
+!!modal.querySelector('button'); //true
+
+
