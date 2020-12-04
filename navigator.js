@@ -137,3 +137,42 @@ function addEntryToDom(event) {
 }
 
 entryForm.addEventListener('submit', addEntryToDom)
+
+
+
+
+window.$ = document.querySelector.bind(document);
+window.$$ = document.querySelectorAll.bind(document);
+
+$('.card'); //<div class="card"></div>
+$$('.card');//[<div class="card"></div>, <div class="card"></div>]
+
+
+Node.prototype.on = window.on = function (name, fn){
+    this.addEventListener(name, fn);
+}
+
+//instead of
+document.querySelector('.card').addEventListener('click', handleClick);
+//use
+$('.card').on('click', handleClick);
+
+
+NodeList.prototype.__proto__ = Array.prototype;
+
+//use any array methods on NodeLists
+$$('.cards').map(card=>card.textContent); //['card 1', 'card2']
+
+//instead of
+document
+    .querySelectorAll('.cards')
+    .forEach(card => card.addEventListener('click', handleClick));
+
+//use
+$$('.cards').on('click', handleClick);
+
+NodeList.prototype.on = function(name, fn) {
+    this.forEach(function(elem, i){
+        elem.on(name, fn);
+    })
+}
