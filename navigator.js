@@ -140,3 +140,27 @@ NodeList.prototype.on = function(name, fn) {
         elem.on(name, fn);
     })
 }
+
+
+
+const grandparent = document.getElementById0("grandparent-id")
+const parents = Array.from(document.getElementsByClassName("parent"))
+parents.forEach(changeColor)
+
+changeColor(grandparent)
+
+function changeCOlor(element){
+    element.style.backgroundColor = "#333"
+}
+
+//Element tree
+const grandfather = document.querySelector("#grandparent-id")
+changeColor(grandfather)
+
+const parent = document.querySelector('.parent')
+changeColor(parent)
+
+const grandmother = document.querySelector(".grandmother")
+const grandmas = Array.from(grandmother.children)
+
+grandmas.forEach(changeColor)
